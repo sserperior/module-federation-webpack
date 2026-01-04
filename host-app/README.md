@@ -32,7 +32,9 @@ npm run preview
 | remote-app  | remote-server | host-app     | host-server                  | Port          | Result                                                          |
 | :---------  | :------------ | :----------- | :--------------------------- | :------------ | :-------------------------------------------------------------- |
 | not running | not running   | dev          | not running                  | 3001          | Error loading remote component.                                 |
+| dev         | not running   | dev          | not running                  | 3001          | Front end ok. Form submission failed with status 504.           |
 | dev         | running       | dev          | not running                  | 3001          | Front end ok. Form submission failed with status 504.           |
+| dev         | running       | dev          | running                      | 3001          | Error loading remote component.                                 |
 | dev         | running       | dev          | running (ENV=development)    | 3001          | Error loading remote component.                                 |
 | preview     | not running   | dev          | not running                  | 3001          | Front end ok. Form submission failed with status 504.           |
 | preview     | not running   | dev          | running                      | 3001          | Error loading remote component.                                 |
