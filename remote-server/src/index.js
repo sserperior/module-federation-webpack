@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const path = require('path');
 const fs = require('fs');
 const { isAlpha, isInt } = require('validator');
@@ -7,7 +6,7 @@ const { isAlpha, isInt } = require('validator');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 app.post('/api/send', (req, res) => {
 	console.log(`Hello from the remote server! Time: ${new Date().toISOString()}`);
