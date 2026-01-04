@@ -2,12 +2,11 @@ const express = require('express');
 const { fetch } = require('undici');
 const path = require('path');
 const fs = require('fs');
-const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = process.env.PORT || 4001;
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 // Server-to-server forwarder: handle /api/* requests by forwarding to localhost:4000
 app.post('/api/send', async (req, res) => {
@@ -23,7 +22,10 @@ app.post('/api/send', async (req, res) => {
 
 app.get('/api/remote-url', (req, res) => {
 	// In a real application, this URL might be fetched from a database, configuration file or from the environment (e.g. IST, UAT, NFT, PROD).
-	const remoteUrl = 'http://localhost:4000/remoteEntry.js';
+	let remoteUrl = 'http://localhost:4000/remoteEntry.js';
+	if (process.env.ENV === 'development') {
+		remoteUrl = 'http://localhost:3000/remoteEntry.js';
+	}
 	res.json({ url: remoteUrl });
 });
 

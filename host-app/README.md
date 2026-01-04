@@ -29,15 +29,15 @@ npm run preview
 
 5. Combinations and Results
 
-| remote-app  | remote-server | host-app     | host-server  | Port          | Result                                                          |
-| :---------  | :------------ | :----------- | :------------| :------------ | :-------------------------------------------------------------- |
-| not running | not running   | dev          | not running  | 3001          | Error loading remote component.                                 |
-| dev         | running       | dev          | not running  | 3001          | Front end ok. Form submission failed with status 504.           |
-| dev         | running       | dev          | running      | 3001          | Front end ok. Form submission works.                            |
-| preview     | not running   | dev          | not running  | 3001          | Front end ok. Form submission failed with status 504.           |
-| preview     | not running   | dev          | running      | 3001          | Error loading remote component.                                 |
-| preview     | not running   | preview      | not running  | 3001          | Front end ok. Form submission "works". serve server returns ok. |
-| build       | running       | dev          | not running  | 3001          | Error loading remote component.                                 |
-| build       | running       | dev          | running      | 3001          | Front end ok. Form submission works.                            |
-| build       | running       | preview      | not running  | 3001          | Error loading remote component.                                 |
-| build       | running       | build        | running      | 4001          | Front end ok. Form submission works.                            |
+| remote-app  | remote-server | host-app     | host-server                  | Port          | Result                                                          |
+| :---------  | :------------ | :----------- | :--------------------------- | :------------ | :-------------------------------------------------------------- |
+| not running | not running   | dev          | not running                  | 3001          | Error loading remote component.                                 |
+| dev         | running       | dev          | not running                  | 3001          | Front end ok. Form submission failed with status 504.           |
+| dev         | running       | dev          | running (ENV=development)    | 3001          | Error loading remote component.                                 |
+| preview     | not running   | dev          | not running                  | 3001          | Front end ok. Form submission failed with status 504.           |
+| preview     | not running   | dev          | running                      | 3001          | Error loading remote component.                                 |
+| preview     | not running   | preview      | not running                  | 3001          | Front end ok. Form submission "works". serve server returns ok. |
+| build       | running       | dev          | not running                  | 3001          | Error loading remote component.                                 |
+| build       | running       | dev          | running                      | 3001          | Front end ok. Form submission works.                            |
+| build       | running       | preview      | not running                  | 3001          | Error loading remote component.                                 |
+| build       | running       | build        | running                      | 4001          | Front end ok. Form submission works.                            |
