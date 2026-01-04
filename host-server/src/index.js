@@ -21,12 +21,8 @@ app.post('/api/send', async (req, res) => {
 });
 
 app.get('/api/remote-url', (req, res) => {
-	// In a real application, this URL might be fetched from a database, configuration file or from the environment (e.g. IST, UAT, NFT, PROD).
-	let remoteUrl = 'http://localhost:4000/remoteEntry.js';
-	if (process.env.ENV === 'development') {
-		remoteUrl = 'http://localhost:3000/remoteEntry.js';
-	}
-	res.json({ url: remoteUrl });
+	// In a real application, this URL might be fetched from a database, configuration file or from the environment.
+	res.json({ url: process.env.ENV === 'development' ? 'http://localhost:3000/remoteEntry.js' : 'http://localhost:4000/remoteEntry.js' });
 });
 
 // Serve host-app production build if it exists
